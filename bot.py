@@ -1,14 +1,4 @@
-To enhance usability, we can add a specific command (e.g., `/generate`) to trigger the string session generation. This will allow users to explicitly request a session generation and streamline interactions.
-
-Here’s the modification:
-
-### Changes
-1. Add a `/generate` command to handle phone number input.
-2. Ensure the bot flow begins only when this command is issued, making it more intuitive.
-
-### Updated Code
-
-```python
+# Ensure all comments and strings use ASCII-compliant quotes
 from telethon.sync import TelegramClient
 from telethon.errors import (
     SessionPasswordNeededError,
@@ -97,24 +87,3 @@ async def generate_session(event):
 if __name__ == "__main__":
     print("Bot is running...")
     bot.run_until_disconnected()
-```
-
-### Key Enhancements
-1. **`/generate` Command**:
-   - Users now trigger session generation with `/generate <phone_number>`, improving clarity and reducing accidental triggers.
-
-2. **Pattern Refinement**:
-   - Ensures that OTPs and passwords are matched correctly during the flow.
-
-3. **User Guidance**:
-   - Clear instructions on how to use the `/generate` command are provided in the `/start` message.
-
-### Example Usage
-1. User starts the bot:
-   - `/start`
-   - Bot replies with instructions to use `/generate`.
-2. User triggers session generation:
-   - `/generate +1234567890`
-   - OTP flow begins, followed by password handling if needed.
-
-Would you like me to implement further refinements or address additional requirements?
